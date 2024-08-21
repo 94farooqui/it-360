@@ -329,6 +329,7 @@ export const sampleTickets = [
         ]
     },
     {
+        ticket_number: 12,
         title: "VPN Connection Failure",
         description: "Unable to connect to the company's VPN.",
         asset: {
