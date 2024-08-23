@@ -28,7 +28,7 @@ const notifications = [
 export function TicketCard({ className, ...props }) {
     const {ticket} = props
   return (
-    <Card className={cn("w-[380px]", className)} {...props}>
+    <Card className={cn("w-[380px] flex flex-col justify-between", className)} {...props}>
       <CardHeader>
         <p>TK-200</p>
         <CardTitle>{ticket.title}</CardTitle>
@@ -39,11 +39,26 @@ export function TicketCard({ className, ...props }) {
           
             <div
               
+              className="mb-2 grid grid-cols-[25px_1fr] items-start pb-4 last:mb-0 last:pb-0"
+            >
+              <span className={cn("flex h-3 w-3 translate-y-1 rounded-full ", ticket.status=="New" ? "bg-green-500" : (ticket.status=="Open" ? "bg-sky-500" : "bg-gray-500"))} />
+              <div className="space-y-1">
+                <p className="text-sm font-semibold text-slate-600 leading-none">
+                  Status
+                </p>
+                <p className="text-sm text-muted-foreground">
+                {ticket.status}
+                </p>
+              </div>
+            </div>
+
+            <div
+              
               className="mb-4 grid grid-cols-[25px_1fr] items-start pb-4 last:mb-0 last:pb-0"
             >
-              <span className="flex h-2 w-2 translate-y-1 rounded-full bg-sky-500" />
+              <span className="flex h-2 w-2 translate-y-1 rounded-full " />
               <div className="space-y-1">
-                <p className="text-sm font-medium leading-none">
+                <p className="text-sm font-semibold text-slate-600 leading-none">
                   Assigne
                 </p>
                 <p className="text-sm text-muted-foreground">

@@ -7,43 +7,33 @@ import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
+  DropdownMenuItem,
   DropdownMenuLabel,
+  DropdownMenuRadioGroup,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
 
 
-export function TicketFilter() {
-  const [showStatusBar, setShowStatusBar] = React.useState(true)
-  const [showActivityBar, setShowActivityBar] = React.useState(false)
-  const [showPanel, setShowPanel] = React.useState(false)
+export function TicketFilter({filter,setSearchParams}) {
 
+  const handleFilterChange = (filter) => {
+    setSearchParams({filter:filter})
+  }
+//console.log(filter)
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline">Open</Button>
+        <Button className="font-semibold" variant="outline">{filter}</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
-        <DropdownMenuLabel>Filter</DropdownMenuLabel>
+        <DropdownMenuLabel>{"Filter"}</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuCheckboxItem
-          checked={showStatusBar}
-          onCheckedChange={setShowStatusBar}
-        >
-          All
-        </DropdownMenuCheckboxItem>
-        <DropdownMenuCheckboxItem
-          checked={showActivityBar}
-          onCheckedChange={setShowActivityBar}
-        >
-          Open
-        </DropdownMenuCheckboxItem>
-        <DropdownMenuCheckboxItem
-          checked={showPanel}
-          onCheckedChange={setShowPanel}
-        >Closed
-        </DropdownMenuCheckboxItem>
+          <DropdownMenuItem onClick={()=>handleFilterChange("All")} value="All">All</DropdownMenuItem>
+          <DropdownMenuItem onClick={()=>handleFilterChange("New")} value="New">New</DropdownMenuItem>
+          <DropdownMenuItem onClick={()=>handleFilterChange("Open")} value="Open">Open</DropdownMenuItem>
+          <DropdownMenuItem onClick={()=>handleFilterChange("Closed")} value="Closed">Closed</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   )

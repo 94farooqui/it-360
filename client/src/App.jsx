@@ -9,6 +9,8 @@ import Layout from './components/Layout'
 import Tickets from './pages/Tickets'
 import Vendors from './pages/Vendors'
 import Users from './pages/Users'
+import NewTicket from './pages/NewTicket'
+import Assets from './pages/Assets'
 
 
 function App() {
@@ -19,8 +21,11 @@ function App() {
       <Routes>
         <Route element={<Layout/>}>
           <Route path='/' element={<Home/>} />
-          <Route path='/tickets' element={<Tickets/>} />
+          <Route path='/tickets' element={<Tickets/>}>
+            <Route path='new' element={<NewTicket/>} />
+          </Route>
           <Route path='/vendors' element={<Vendors/>} />
+          <Route path='/assets' element={<Assets/>} />
           <Route path='/users' element={<Users/>} />
 
         </Route>

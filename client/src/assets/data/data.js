@@ -15,6 +15,7 @@ export const sampleTickets = [
     {
         title: "Printer Malfunction",
         description: "The office printer is not printing any documents.",
+        status:"New",
         asset: {
             name: "Office Printer",
             assetType: "Printer",
@@ -45,6 +46,7 @@ export const sampleTickets = [
     {
         title: "Laptop Battery Replacement",
         description: "The battery of the laptop is not holding charge.",
+        status:"Open",
         asset: {
             name: "Laptop",
             assetType: "Computer",
@@ -71,6 +73,7 @@ export const sampleTickets = [
     {
         title: "Software Installation",
         description: "Need to install Adobe Photoshop on the new workstation.",
+        status:"Open",
         asset: {
             name: "Workstation",
             assetType: "Computer",
@@ -97,6 +100,7 @@ export const sampleTickets = [
     {
         title: "Network Outage",
         description: "The office network is down.",
+        status:"New",
         asset: {
             name: "Network",
             assetType: "Infrastructure",
@@ -123,6 +127,7 @@ export const sampleTickets = [
     {
         title: "Phone Line Issue",
         description: "The phone line is not working.",
+        status:"Closed",
         asset: {
             name: "Phone",
             assetType: "Telecom",
@@ -149,6 +154,7 @@ export const sampleTickets = [
     {
         title: "Software Bug Report",
         description: "Bug in the accounting software causing crashes.",
+        status:"Closed",
         asset: {
             name: "Accounting Software",
             assetType: "Software",
@@ -175,6 +181,7 @@ export const sampleTickets = [
     {
         title: "Monitor Flickering",
         description: "The monitor is flickering intermittently.",
+        status:"New",
         asset: {
             name: "Monitor",
             assetType: "Display",
@@ -201,6 +208,7 @@ export const sampleTickets = [
     {
         title: "Keyboard Replacement",
         description: "The keyboard has several unresponsive keys.",
+        status:"Open",
         asset: {
             name: "Keyboard",
             assetType: "Input Device",
@@ -227,6 +235,7 @@ export const sampleTickets = [
     {
         title: "Server Downtime",
         description: "Company server is experiencing downtime.",
+        status:"Open",
         asset: {
             name: "Server",
             assetType: "Server",
@@ -253,6 +262,7 @@ export const sampleTickets = [
     {
         title: "Access Rights Request",
         description: "Need additional access rights to the project management tool.",
+        status:"Closed",
         asset: {
             name: "Project Management Tool",
             assetType: "Software",
@@ -279,6 +289,7 @@ export const sampleTickets = [
     {
         title: "Email Configuration",
         description: "Need help configuring email on a new phone.",
+        status:"New",
         asset: {
             name: "Phone",
             assetType: "Mobile",
@@ -305,6 +316,7 @@ export const sampleTickets = [
     {
         title: "Graphics Card Issue",
         description: "Graphics card is not rendering properly.",
+        status:"New",
         asset: {
             name: "Graphics Card",
             assetType: "Hardware",
@@ -332,6 +344,7 @@ export const sampleTickets = [
         ticket_number: 12,
         title: "VPN Connection Failure",
         description: "Unable to connect to the company's VPN.",
+        status:"New",
         asset: {
             name: "VPN",
             assetType: "Service",
