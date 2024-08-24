@@ -1,4 +1,5 @@
 import { sampleTickets } from '@/assets/data/data'
+import PageHeader from '@/components/PageHeader'
 import { TicketCard } from '@/components/tickets/TicketCard'
 import { TicketFilter } from '@/components/tickets/TicketFilter'
 import { Button } from '@/components/ui/button'
@@ -30,12 +31,12 @@ const Tickets = () => {
   }
   return (
     <div className='flex flex-col p-4'>
-      <div className='w-full rounded-lg border bg-card p-4 text-card-foreground shadow-sm flex items-center justify-between'>
-        <h2>All Tickets</h2>
+     <PageHeader>
+        <h2 className='text-2xl font-semibold text-slate-600'>{filter} Tickets</h2>
         <div className='flex gap-2'>
         <TicketFilter filter={filter} setSearchParams={setSearchParams} />
         </div>
-      </div>
+        </PageHeader>
       <div className='mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-4 py-4'>
         {tickets.map((ticket,index) => <TicketCard key={index} ticket={ticket} />)}
 

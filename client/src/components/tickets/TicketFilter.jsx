@@ -1,6 +1,5 @@
-"use client"
-
 import * as React from "react"
+import filterIcon from './../../../src/assets/icons/filter.svg'
 
 import { Button } from "@/components/ui/button"
 import {
@@ -25,7 +24,7 @@ export function TicketFilter({filter,setSearchParams}) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button className="font-semibold" variant="outline">{filter}</Button>
+        <Button className="font-semibold text-lg w-32 flex justify-between" variant="outline"><img className="w-8 h-6 " src={filterIcon} />{filter}</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
         <DropdownMenuLabel>{"Filter"}</DropdownMenuLabel>

@@ -1,3 +1,12 @@
+import filterIcon from './../icons/filter.svg'
+
+export const icons = [
+    {
+        name: "filter_icon",
+        immage : filterIcon
+    }
+]
+
 export const sidebar = [
 
     { navItem: "Home", navIcon: "", navLink: "/" },
@@ -6,6 +15,7 @@ export const sidebar = [
     { navItem: "Assets", navIcon: "", navLink: "/assets" },
     { navItem: "Users", navIcon: "", navLink: "/users" },
     { navItem: "Knowledge", navIcon: "", navLink: "/kb" },
+    { navItem: "Inventory", navIcon: "", navLink: "/inventory" },
 ]
 
 
