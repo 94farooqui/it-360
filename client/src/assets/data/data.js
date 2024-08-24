@@ -3,10 +3,136 @@ import filterIcon from './../icons/filter.svg'
 export const icons = [
     {
         name: "filter_icon",
-        immage : filterIcon
+        immage: filterIcon
     }
 ]
 
+
+export const assetCategories = [
+    {
+        name: "Hardware",
+        value: "Hardware"
+    },
+    {
+        name: "Service",
+        value: "Service"
+    }
+]
+
+export const assetTypes = [
+    {
+        category: "Hardware",
+        assetItems: [
+            {
+                name: "Laptop",
+                value:"Laptop",
+                image: ""
+            },
+            {
+                name: "Printer",
+                name: "Printer",
+                image: ""
+            },
+            {
+                name: "Switch",
+                name: "Switch",
+                image: ""
+            },
+            {
+                name: "Access Point",
+                name: "Access Point",
+                image:""
+            }
+        ]
+    },
+    {
+        category: "Service",
+        assetItems: [
+            {
+                name:"Internet",
+                name:"Internet",
+                image:""
+            },
+            {
+                name: "Firewall Support",
+                name: "Firewall Support",
+                image: ""
+            },
+            {
+                name:"Security",
+                name:"Security",
+                image:""
+            },
+            {
+                name:"Printer Maintenance",
+                name:"Printer Maintenance",
+                image:""
+            }
+        ]
+    }
+]
+
+export const vendors = [
+    {
+        name: "HP",
+        logoImage: "hp-logo.png",
+        email: "support@hp.com",
+        contact_number: "+1-800-HP-INFO"
+    },
+    {
+        name: "Dell",
+        logoImage: "dell-logo.png",
+        email: "support@dell.com",
+        contact_number: "+1-800-624-9896"
+    },
+    {
+        name: "Cisco",
+        logoImage: "cisco-logo.png",
+        email: "support@cisco.com",
+        contact_number: "+1-800-553-6387"
+    },
+    {
+        name: "Avaya",
+        logoImage: "avaya-logo.png",
+        email: "support@avaya.com",
+        contact_number: "+1-800-828-8368"
+    },
+    {
+        name: "Intuit",
+        logoImage: "intuit-logo.png",
+        email: "support@intuit.com",
+        contact_number: "+1-800-555-1234"
+    }
+
+]
+
+export const assets = [
+    {
+        assetName: "Office Printer",
+        assetCategory: "Hardware",
+        assetType: "Printer",
+        assetSerial: "PR123456",
+        description: "HP LaserJet Pro MFP",
+        assetVendor: {
+            name: "HP",
+            logoImage: "hp-logo.png",
+            email: "support@hp.com",
+            contact_number: "+1-800-HP-INFO"
+        }
+    },
+    {
+        assetName: "Laptop",
+        assetType: "Computer",
+        assetSerial: "LT789012",
+        description: "Dell XPS 13",
+        assetVendor: {
+            name: "Dell",
+            logoImage: "dell-logo.png",
+            email: "support@dell.com",
+            contact_number: "+1-800-624-9896"
+        }
+    },
+]
 export const sidebar = [
 
     { navItem: "Home", navIcon: "", navLink: "/" },
@@ -25,7 +151,7 @@ export const sampleTickets = [
     {
         title: "Printer Malfunction",
         description: "The office printer is not printing any documents.",
-        status:"New",
+        status: "New",
         asset: {
             name: "Office Printer",
             assetType: "Printer",
@@ -56,7 +182,7 @@ export const sampleTickets = [
     {
         title: "Laptop Battery Replacement",
         description: "The battery of the laptop is not holding charge.",
-        status:"Open",
+        status: "Open",
         asset: {
             name: "Laptop",
             assetType: "Computer",
@@ -83,7 +209,7 @@ export const sampleTickets = [
     {
         title: "Software Installation",
         description: "Need to install Adobe Photoshop on the new workstation.",
-        status:"Open",
+        status: "Open",
         asset: {
             name: "Workstation",
             assetType: "Computer",
@@ -110,7 +236,7 @@ export const sampleTickets = [
     {
         title: "Network Outage",
         description: "The office network is down.",
-        status:"New",
+        status: "New",
         asset: {
             name: "Network",
             assetType: "Infrastructure",
@@ -137,7 +263,7 @@ export const sampleTickets = [
     {
         title: "Phone Line Issue",
         description: "The phone line is not working.",
-        status:"Closed",
+        status: "Closed",
         asset: {
             name: "Phone",
             assetType: "Telecom",
@@ -164,7 +290,7 @@ export const sampleTickets = [
     {
         title: "Software Bug Report",
         description: "Bug in the accounting software causing crashes.",
-        status:"Closed",
+        status: "Closed",
         asset: {
             name: "Accounting Software",
             assetType: "Software",
@@ -191,7 +317,7 @@ export const sampleTickets = [
     {
         title: "Monitor Flickering",
         description: "The monitor is flickering intermittently.",
-        status:"New",
+        status: "New",
         asset: {
             name: "Monitor",
             assetType: "Display",
@@ -218,7 +344,7 @@ export const sampleTickets = [
     {
         title: "Keyboard Replacement",
         description: "The keyboard has several unresponsive keys.",
-        status:"Open",
+        status: "Open",
         asset: {
             name: "Keyboard",
             assetType: "Input Device",
@@ -245,7 +371,7 @@ export const sampleTickets = [
     {
         title: "Server Downtime",
         description: "Company server is experiencing downtime.",
-        status:"Open",
+        status: "Open",
         asset: {
             name: "Server",
             assetType: "Server",
@@ -272,7 +398,7 @@ export const sampleTickets = [
     {
         title: "Access Rights Request",
         description: "Need additional access rights to the project management tool.",
-        status:"Closed",
+        status: "Closed",
         asset: {
             name: "Project Management Tool",
             assetType: "Software",
@@ -299,7 +425,7 @@ export const sampleTickets = [
     {
         title: "Email Configuration",
         description: "Need help configuring email on a new phone.",
-        status:"New",
+        status: "New",
         asset: {
             name: "Phone",
             assetType: "Mobile",
@@ -326,7 +452,7 @@ export const sampleTickets = [
     {
         title: "Graphics Card Issue",
         description: "Graphics card is not rendering properly.",
-        status:"New",
+        status: "New",
         asset: {
             name: "Graphics Card",
             assetType: "Hardware",
@@ -354,7 +480,7 @@ export const sampleTickets = [
         ticket_number: 12,
         title: "VPN Connection Failure",
         description: "Unable to connect to the company's VPN.",
-        status:"New",
+        status: "New",
         asset: {
             name: "VPN",
             assetType: "Service",

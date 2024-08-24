@@ -1,26 +1,70 @@
-import React from 'react'
+import React, { useState } from 'react'
 import closeIcon from './../../../src/assets/icons/close.svg'
 import MyInput from '../shared/MyInput'
 import MyTextArea from '../shared/MyTextArea'
-const AddAsset = ({setShowAddAsset}) => {
-  return (
-    <div className='absolute top-0 left-0 w-screen h-screen bg-slate-800/40 flex justify-center items-center'>
-    <div className='bg-white w-[800px] p-4 flex-col rounded-lg shadow-lg'>
-        <div className='flex w-full justify-between'>
-            <h2 className='text-xl font-bold text-slate-600'>Add Asset</h2>
-        <button onClick={()=>setShowAddAsset(false)}><img src={closeIcon} className='w-8 h-8' /></button>
+import MySelectList from '../shared/MySelectList'
+import MySelectOption from '../shared/MySelectOption'
+import { assetCategories } from '@/assets/data/data'
+import { assetTypes } from '@/assets/data/data'
+import { vendors } from '@/assets/data/data'
+
+const initialAssetValues = {
+
+    assetName: "",
+    assetCategory: "",
+    assetType: "",
+    assetSerial: "",
+    description: "",
+    assetVendor: {
+        name: "",
+        logoImage: "",
+        email: "",
+        contact_number: ""
+    }
+
+}
+
+const AddAsset = ({ setShowAddAsset }) => {
+    const [assetDetails,setAssetDetails] = useState(initialAssetValues)
+
+    const onValueChange = (e) => {
+        setAssetDetails({...assetDetails, [e.target.name]:e.target.value})
+    }
+    return (
+        <div className='absolute top-0 left-0 w-screen h-screen bg-slate-800/40 flex justify-center items-center'>
+            <div className='bg-white w-[800px] p-4 flex-col rounded-lg shadow-lg'>
+                <div className='flex w-full justify-between'>
+                    <h2 className='text-xl font-bold text-slate-600'>Add Asset</h2>
+                    <button onClick={() => setShowAddAsset(false)}><img src={closeIcon} className='w-8 h-8' /></button>
+                </div>
+                <form className='mt-4 flex flex-col gap-y-4'>
+                    <div className='flex gap-4 items-center'>
+                        <label className='text-lg'>Category</label>
+                        <MySelectList name='assetCategory' value="DEFAULT" optionsList={assetCategories} onValueChange={onValueChange} >
+                            <option  name="DEFAULT">Select Categoey</option>
+                        </MySelectList>
+                    </div>
+                    <div className='flex gap-4 items-center'>
+                        <label className='text-lg'>Type</label>
+                        <MySelectList name='assetType' optionsList={assetTypes.filter(item => item.category == assetDetails.assetCategory)} onValueChange={onValueChange} />
+                    </div>
+                    <div className='w-full'>
+                        <MyInput placeholder='Asset name' name="assetName" onValueChange={onValueChange} />
+                    </div>
+                    <div className='w-full'>
+                        <MyTextArea placeholder='Description' name="description" onValueChange={onValueChange}/>
+                    </div>
+                    <div>
+                        <MyInput name="assetSerial" placeholder="Serial Number" onValueChange={onValueChange}/>
+                    </div>
+                    <div className='flex gap-4 items-center'>
+                        <label className='text-lg'>Vendor</label>
+                        <MySelectList name='assetVendor' optionsList={vendors} onValueChange={onValueChange}/>
+                    </div>
+                </form>
+            </div>
         </div>
-        <form className='mt-4 flex flex-col gap-y-4'>
-            <div className='w-full'>
-                <MyInput placeholder='Asset name' />
-            </div>
-            <div className='w-full'>
-                <MyTextArea placeholder='Description' />
-            </div>
-        </form>
-    </div>
-    </div>
-  )
+    )
 }
 
 export default AddAsset
