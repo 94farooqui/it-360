@@ -20,56 +20,55 @@ export const assetCategories = [
 ]
 
 export const assetTypes = [
-    {
-        category: "Hardware",
-        assetItems: [
+
             {
+                category: "Hardware",
                 name: "Laptop",
                 value:"Laptop",
                 image: ""
             },
             {
+                category: "Hardware",
                 name: "Printer",
                 name: "Printer",
                 image: ""
             },
             {
+                category: "Hardware",
                 name: "Switch",
                 name: "Switch",
                 image: ""
             },
             {
+                category: "Hardware",
                 name: "Access Point",
                 name: "Access Point",
                 image:""
-            }
-        ]
-    },
-    {
-        category: "Service",
-        assetItems: [
+            },
             {
+                category: "Service",
                 name:"Internet",
                 name:"Internet",
                 image:""
             },
             {
+                category: "Service",
                 name: "Firewall Support",
                 name: "Firewall Support",
                 image: ""
             },
             {
+                category: "Service",
                 name:"Security",
                 name:"Security",
                 image:""
             },
             {
+                category: "Service",
                 name:"Printer Maintenance",
                 name:"Printer Maintenance",
                 image:""
             }
-        ]
-    }
 ]
 
 export const vendors = [
@@ -139,6 +138,9 @@ export const sidebar = [
     { navItem: "Tickets", navIcon: "", navLink: "/tickets" },
     { navItem: "Vendors", navIcon: "", navLink: "/vendors" },
     { navItem: "Assets", navIcon: "", navLink: "/assets" },
+    { navItem: "Asset Categories", navIcon: "", navLink: "/asset-categories" },
+    { navItem: "Asset Types", navIcon: "", navLink: "/asset-types" },
+    { navItem: "Vendors", navIcon: "", navLink: "/asset-vendors" },
     { navItem: "Users", navIcon: "", navLink: "/users" },
     { navItem: "Knowledge", navIcon: "", navLink: "/kb" },
     { navItem: "Inventory", navIcon: "", navLink: "/inventory" },

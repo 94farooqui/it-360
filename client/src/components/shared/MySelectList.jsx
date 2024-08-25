@@ -1,11 +1,11 @@
 import React from 'react'
 
 const MySelectList = ({...props}) => {
-    const {optionsList} = props
+    const {name,optionsList,onValueChange} = props
   return (
-    <select className='w-full border-slate-200 focus:outline-none focus:border-slate-400 focus:bg-slate-100 p-2 rounded-md border-2 text-lg'>
+    <select name={name} onChange={(e)=>onValueChange(e)} className='w-full border-slate-200 focus:outline-none focus:border-slate-400 focus:bg-slate-100 p-2 rounded-md border-2 text-lg'>
         {props.children}
-        {optionsList.map(listItem => <option value={listItem.value}>{listItem.name}</option>)}
+        {optionsList.map((listItem,index) => <option key={index} value={listItem.value}>{listItem.name}</option>)}
     </select>
       
     

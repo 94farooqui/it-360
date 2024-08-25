@@ -1,14 +1,18 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 import { vendorSchema } from "./vendor.model.js";
 
 export const assetSchema = new mongoose.Schema({
-    name : {
+    assetName : {
         type: String,
         required: true
     },
+    assetCategory : {
+        type: Schema.Types.ObjectId,
+        ref: "assetCategory"
+    },
     assetType : {
-        type: String,
-        required: true
+        type: Schema.Types.ObjectId,
+        ref: "assetType"
     },
     assetSerial: {
         type: String
@@ -17,7 +21,10 @@ export const assetSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    assetVendor: vendorSchema
+    assetVendor: {
+        type: Schema.Types.ObjectId,
+        ref: "vendor"
+    },
 })
 
 const Asset = mongoose.Model("Asset",assetSchema)

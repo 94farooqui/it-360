@@ -11,6 +11,8 @@ import Vendors from './pages/Vendors'
 import Users from './pages/Users'
 import NewTicket from './pages/NewTicket'
 import Assets from './pages/Assets'
+import NewCategory from './pages/NewCategory'
+import AssetCategoreis from './pages/AssetCategoreis'
 
 
 function App() {
@@ -26,6 +28,7 @@ function App() {
           </Route>
           <Route path='/vendors' element={<Vendors/>} />
           <Route path='/assets' element={<Assets/>} />
+          <Route path='/asset-categories' element={<AssetCategoreis/>} />
           <Route path='/users' element={<Users/>} />
 
         </Route>
