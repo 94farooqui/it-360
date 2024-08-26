@@ -1,7 +1,7 @@
 import mongoose, { Schema } from "mongoose";
 import { vendorSchema } from "./vendor.model.js";
 
-export const assetSchema = new mongoose.Schema({
+export const assetTypeSchema = new mongoose.Schema({
     category : {
        type: Schema.Types.ObjectId,
        ref: "assetCategory"
@@ -10,7 +10,7 @@ export const assetSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    value: {
+    description: {
         type: String,
         required: true
     },
@@ -20,6 +20,6 @@ export const assetSchema = new mongoose.Schema({
     }
 })
 
-const Asset = mongoose.Model("Asset",assetSchema)
+const Asset_Type = mongoose.model("Asset_Type",assetTypeSchema)
 
-export default Asset;
+export default Asset_Type;

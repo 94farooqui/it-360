@@ -13,6 +13,7 @@ import NewTicket from './pages/NewTicket'
 import Assets from './pages/Assets'
 import NewCategory from './pages/NewCategory'
 import AssetCategoreis from './pages/AssetCategoreis'
+import AssetTypes from './pages/AssetTypes'
 
 
 function App() {
@@ -29,6 +30,8 @@ function App() {
           <Route path='/vendors' element={<Vendors/>} />
           <Route path='/assets' element={<Assets/>} />
           <Route path='/asset-categories' element={<AssetCategoreis/>} />
+          <Route path='/asset-types' element={<AssetTypes/>} />
+
           <Route path='/users' element={<Users/>} />
 
         </Route>

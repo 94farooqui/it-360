@@ -18,6 +18,6 @@ export const vendorSchema = new mongoose.Schema({
     }
 })
 
-const vendor = mongoose.Model("vendor",vendorSchema)
+const vendor = mongoose.model("vendor",vendorSchema)
 
 export default vendor;

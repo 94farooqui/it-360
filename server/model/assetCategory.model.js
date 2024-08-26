@@ -1,22 +1,22 @@
 import mongoose from "mongoose";
 import { vendorSchema } from "./vendor.model.js";
 
-export const assetSchema = new mongoose.Schema({
+export const assetCategorySchema = new mongoose.Schema({
  
     name : {
         type: String,
         required: true
     },
-    value: {
+    description: {
         type: String,
         required: true
     },
     image : {
         type: String,
-        required: true
+      
     }
 })
 
-const Asset = mongoose.Model("Asset",assetSchema)
+const Asset_Category = mongoose.model("Asset_Category",assetCategorySchema)
 
-export default Asset;
+export default Asset_Category;

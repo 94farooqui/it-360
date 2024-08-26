@@ -27,6 +27,6 @@ export const assetSchema = new mongoose.Schema({
     },
 })
 
-const Asset = mongoose.Model("Asset",assetSchema)
+const Asset = mongoose.model("Asset",assetSchema)
 
 export default Asset;
