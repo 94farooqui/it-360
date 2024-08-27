@@ -16,7 +16,6 @@ export const assetTypeSchema = new mongoose.Schema({
     },
     image : {
         type: String,
-        required: true
     }
 })
 

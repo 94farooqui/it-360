@@ -1,20 +1,22 @@
+
 import { Button } from "@/components/ui/button";
 import useAssets from "@/hooks/useAssets";
-import { addAssetType } from "@/services/api";
+import { addNewVendor } from "@/services/api";
 import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const initialAssetType = {
-    category: "",
+const initialVendor = {
     name: "",
-    description: "",
-    image: ""
+    logoImage: "",
+    email: "",
+    contact_number: "",
+    portal:""
 }
 
-const AddAssetType = ({ setShowNewType }) => {
+const AddVendor = ({ setShowNewVendor }) => {
     const navigate = useNavigate();
     const { categories } = useAssets()
-    const [newAssetType, setNewAssetType] = useState(initialAssetType)
+    const [newVendor, setNewVendor] = useState(initialVendor)
     const [selectedImage, setSelectedImage] = useState(null);
     const fileInputRef = useRef(null);
 
@@ -33,53 +35,66 @@ const AddAssetType = ({ setShowNewType }) => {
     };
 
     const handleInputChange = (e) => {
-        setNewAssetType({ ...newAssetType, [e.target.name]: e.target.value })
+        setNewVendor({ ...newVendor, [e.target.name]: e.target.value })
     }
 
     const handleCancel = () => {
-        setNewAssetType(initialAssetType)
-        setShowNewType(false)
+        setNewVendor(initialVendor)
+        setShowNewVendor(false)
     }
     const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log(newAssetType)
-        const result = await addAssetType(newAssetType)
+        console.log(newVendor)
+        const result = await addNewVendor(newVendor)
         if (result.added) {
             window.alert(result.msg)
-            setNewAssetType(initialAssetType)
-            setShowNewType(false)
+            setNewVendor(initialVendor)
+            setShowNewVendor(false)
         }
     }
     return (
         <div className="absolute top-0 left-0 w-screen h-screen bg-slate-800/40 flex justify-center items-center">
             <div className="w-[800px] p-8 rounded-xl bg-white">
                 <div className="w-full">
-                    <h2 className="text-3xl font-bold text-slate-800 mb-8">Add Asset Type</h2>
+                    <h2 className="text-3xl font-bold text-slate-800 mb-8">Add Vendor</h2>
                     <div className="flex items-start gap-4">
                         <form onSubmit={handleSubmit} className="w-full flex flex-col gap-4">
-                            <div className="w-full grid grid-cols-[150px_auto] items-center">
+                            
+                        <div className="w-full grid grid-cols-[150px_auto] items-center">
                                 <label className="text-lg mr-4 font-semibold text-slate-600">
-                                    Category
-                                </label>
-                                <select name="category" onChange={(e) => handleInputChange(e)} className="p-2 border-2 rounded-lg">
-                                    <option>Select Category</option>
-                                    {categories && categories.map(category => <option key={category._id} value={category._id}>{category.name}</option>)}
-                                </select>
-                            </div>
-                            <div className="w-full grid grid-cols-[150px_auto] items-center">
-                                <label className="text-lg mr-4 font-semibold text-slate-600">
-                                    Asset Type
+                                    Name
                                 </label>
                                 <input name="name" onChange={(e) => handleInputChange(e)} className="p-2 border-2 rounded-lg" placeholder="" />
                             </div>
                             <div className="w-full grid grid-cols-[150px_auto] items-center">
                                 <label className="text-lg mr-4 font-semibold text-slate-600">
-                                    Description
+                                    Email
                                 </label>
-                                <textarea
-                                    name="description"
+                                <input
+                                    name="email"
                                     onChange={(e) => handleInputChange(e)}
-                                    rows={3}
+                                    className=" p-2 border-2 rounded-lg"
+                                    placeholder=""
+                                />
+                            </div>
+                            <div className="w-full grid grid-cols-[150px_auto] items-center">
+                                <label className="text-lg mr-4 font-semibold text-slate-600">
+                                    Phone
+                                </label>
+                                <input
+                                    name="contact_number"
+                                    onChange={(e) => handleInputChange(e)}
+                                    className="resize-none p-2 border-2 rounded-lg"
+                                    placeholder=""
+                                />
+                            </div>
+                            <div className="w-full grid grid-cols-[150px_auto] items-center">
+                                <label className="text-lg mr-4 font-semibold text-slate-600">
+                                    Support Portal
+                                </label>
+                                <input
+                                    name="portal"
+                                    onChange={(e) => handleInputChange(e)}
                                     className="resize-none p-2 border-2 rounded-lg"
                                     placeholder=""
                                 />
@@ -119,4 +134,4 @@ const AddAssetType = ({ setShowNewType }) => {
     );
 };
 
-export default AddAssetType;
+export default AddVendor;

@@ -140,7 +140,6 @@ export const sidebar = [
     { navItem: "Assets", navIcon: "", navLink: "/assets" },
     { navItem: "Asset Categories", navIcon: "", navLink: "/asset-categories" },
     { navItem: "Asset Types", navIcon: "", navLink: "/asset-types" },
-    { navItem: "Vendors", navIcon: "", navLink: "/asset-vendors" },
     { navItem: "Users", navIcon: "", navLink: "/users" },
     { navItem: "Knowledge", navIcon: "", navLink: "/kb" },
     { navItem: "Inventory", navIcon: "", navLink: "/inventory" },

@@ -15,9 +15,13 @@ export const vendorSchema = new mongoose.Schema({
     contact_number : {
         type: String,
         required: true
+    },
+    portal : {
+        type: String,
+        required: true
     }
 })
 
-const vendor = mongoose.model("vendor",vendorSchema)
+const Vendor = mongoose.model("Vendor",vendorSchema)
 
-export default vendor;
+export default Vendor;
