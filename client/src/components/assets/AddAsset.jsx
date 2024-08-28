@@ -6,9 +6,10 @@ import MySelectList from "../shared/MySelectList";
 import MySelectOption from "../shared/MySelectOption";
 import { assetCategories } from "@/assets/data/data";
 import { assetTypes } from "@/assets/data/data";
-import { vendors } from "@/assets/data/data";
 import { Button } from "../ui/button";
 import { addAsset } from "@/services/api";
+import useAssets from "@/hooks/useAssets";
+import useVendors from "@/hooks/useVendors";
 
 const initialAssetValues = {
   assetName: "",
@@ -25,6 +26,8 @@ const initialAssetValues = {
 };
 
 const AddAsset = ({ setShowAddAsset }) => {
+  const {assets, categories,types} = useAssets()
+  const {vendors} = useVendors()
   const [assetDetails, setAssetDetails] = useState(initialAssetValues);
 
   const onValueChange = (e) => {
@@ -64,7 +67,7 @@ const AddAsset = ({ setShowAddAsset }) => {
             <MySelectList
               name="assetCategory"
               value="DEFAULT"
-              optionsList={assetCategories}
+              optionsList={categories}
               onValueChange={onValueChange}
             >
               <option name="DEFAULT">Select Categoey</option>
@@ -74,7 +77,7 @@ const AddAsset = ({ setShowAddAsset }) => {
             <label className="text-lg">Type</label>
             <MySelectList
               name="assetType"
-              optionsList={assetTypes.filter(
+              optionsList={types.filter(
                 (item) => item.category == assetDetails.assetCategory
               )}
               onValueChange={onValueChange}
