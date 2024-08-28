@@ -12,17 +12,21 @@ const Assets = () => {
   const {assets} = useAssets()
 
   useEffect(() => {
-    getAllAssets();
+   
   });
+
+  if(!assets){
+    return <h2>Loading..</h2>
+  }
   return (
     <div className="py-4">
       {showAddAsset && <AddAsset setShowAddAsset={setShowAddAsset} />}
       <PageHeader>
-        <h2>Assets</h2>
+      <h2 className='text-2xl font-semibold text-slate-600'>Assets</h2>
         <Button variant="outline" onClick={()=>setShowAddAsset(true)}>Add New</Button>
       </PageHeader>
       <div className='w-full h-full grid grid-cols-3 gap-4 py-4'>
-        {assets && assets.map(asset => <div className='bg-white p-4 rounded-lg'>{asset.name}</div>)}
+        {assets && assets.map(asset => <div className='bg-white p-4 rounded-lg'>{asset.assetName}</div>)}
       </div>
     </div>
   );

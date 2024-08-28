@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import closeIcon from "./../../../src/assets/icons/close.svg";
 import MyInput from "../shared/MyInput";
 import MyTextArea from "../shared/MyTextArea";
@@ -17,18 +17,14 @@ const initialAssetValues = {
   assetType: "",
   assetSerial: "",
   description: "",
-  assetVendor: {
-    name: "",
-    logoImage: "",
-    email: "",
-    contact_number: "",
-  },
+  assetVendor: " ",
 };
 
 const AddAsset = ({ setShowAddAsset }) => {
-  const {assets, categories,types} = useAssets()
+  const {categories,types} = useAssets()
   const {vendors} = useVendors()
   const [assetDetails, setAssetDetails] = useState(initialAssetValues);
+  //console.log(types)
 
   const onValueChange = (e) => {
     console.log(e.target.value);
@@ -49,6 +45,15 @@ const AddAsset = ({ setShowAddAsset }) => {
         setShowAddAsset(false)
     }
   };
+
+  useEffect(()=>{
+    console.log(categories,types,vendors)
+  },[categories,types,vendors])
+
+  if(!categories || !types || !vendors){
+    return <div className="absolute top-0 left-0 w-screen h-screen bg-slate-800/40 flex justify-center items-center">
+      <div className="bg-white w-[800px] p-4 flex-col rounded-lg shadow-lg"><h1>Loading</h1></div></div>
+  }
   return (
     <div className="absolute top-0 left-0 w-screen h-screen bg-slate-800/40 flex justify-center items-center">
       <div className="bg-white w-[800px] p-4 flex-col rounded-lg shadow-lg">
@@ -78,7 +83,7 @@ const AddAsset = ({ setShowAddAsset }) => {
             <MySelectList
               name="assetType"
               optionsList={types.filter(
-                (item) => item.category == assetDetails.assetCategory
+                (item) => item.category.name == assetDetails.assetCategory
               )}
               onValueChange={onValueChange}
             >

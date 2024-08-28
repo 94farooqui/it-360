@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const MySelectList = ({...props}) => {
     const {name,optionsList,onValueChange} = props
+    useEffect(()=>{
+//console.log(name,optionsList,onValueChange)
+    },[])
     if(!optionsList){
       return <h1>Loading...</h1>
     }

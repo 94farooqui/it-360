@@ -23,7 +23,7 @@ const AssetCategoreis = () => {
   return (
     <div className="py-4 pr-4">
       <PageHeader>
-        <h2>Asset Categories</h2>
+      <h2 className='text-2xl font-semibold text-slate-600'>Asset Categories</h2>
         <Button variant="outline" onClick={()=>setShowNewCategory(true)}>Add New</Button>
       </PageHeader>
       {showNewCategory && <AddAssetType setShowNewCategory={setShowNewCategory}/>}

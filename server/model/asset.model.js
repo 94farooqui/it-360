@@ -8,11 +8,11 @@ export const assetSchema = new mongoose.Schema({
     },
     assetCategory : {
         type: Schema.Types.ObjectId,
-        ref: "assetCategory"
+        ref: "Asset_Category"
     },
     assetType : {
         type: Schema.Types.ObjectId,
-        ref: "assetType"
+        ref: "Asset_Type"
     },
     assetSerial: {
         type: String
@@ -23,7 +23,7 @@ export const assetSchema = new mongoose.Schema({
     },
     assetVendor: {
         type: Schema.Types.ObjectId,
-        ref: "vendor"
+        ref: "Vendor"
     },
 })
 

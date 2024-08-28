@@ -24,7 +24,7 @@ const AssetTypes = () => {
   return (
     <div className="py-4 pr-4">
       <PageHeader>
-        <h2>Asset Types</h2>
+      <h2 className='text-2xl font-semibold text-slate-600'>Asset Types</h2>
         <Button variant="outline" onClick={()=>setShowNewType(true)}>Add New</Button>
       </PageHeader>
       {showNewType && <AddAssetType setShowNewType={setShowNewType}/>}

@@ -4,7 +4,7 @@ import { vendorSchema } from "./vendor.model.js";
 export const assetTypeSchema = new mongoose.Schema({
     category : {
        type: Schema.Types.ObjectId,
-       ref: "assetCategory"
+       ref: "Asset_Category"
     },
     name : {
         type: String,

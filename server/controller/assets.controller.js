@@ -1,14 +1,40 @@
 import Asset_Category from "../model/assetCategory.model.js"
 import Asset_Type from "../model/assetType.model.js"
+import Vendor from "../model/vendor.model.js"
+import Asset from './../model/asset.model.js'
 
-
-export const getAllTAssets = (req,res) => {
-    console.log("Req received",req.body)
+export const getAllTAssets = async (req,res) => {
+    console.log("Req received for assets")
+    try{
+        const assets = await Asset.find().populate("assetCategory").populate("assetType").populate("assetVendor")
+        if(assets){
+            return res.status(200).json(assets)
+        }
+        else return res.status(404).json({msg:"Failed to fetch"})
+    }
+    catch(error){
+        console.log(error)
+    }
     return res.status(200).json({"msg":"Geting all assets"})
 }
 
-export const addAsset = (req,res) => {
+export const addAsset = async (req,res) => {
     console.log("Req received",req.body)
+    try{
+        const foundVendor = await Vendor.findOne({name:req.body.assetVendor})
+        const foundCategory = await Asset_Category.findOne({name:req.body.assetCategory})
+        const foundType = await Asset_Type.findOne({name:req.body.assetType})
+        const asset = {...req.body, assetType:foundType, assetCategory:foundCategory, assetVendor:foundVendor._id}
+        const newAsset = await Asset(asset)
+        const added = await newAsset.save()
+        if(added){
+            return res.status(200).json(newAsset)
+        }
+    }
+    catch(err){
+        console.log(err)
+        return res.status(401).json({msg:"Failed"})
+    }
 }
 
 export const getAllAssetCategories = async (req,res) => {
@@ -42,7 +68,7 @@ export const addAssetCategory = async (req,res) => {
 
 export const getAllAssetTypes = async (req,res) => {
     try{
-        const types = await Asset_Type.find()
+        const types = await Asset_Type.find().populate("category")
         if(types){
             return res.status(200).json(types)
         }

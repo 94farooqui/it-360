@@ -2,17 +2,19 @@ import axios from "axios"
 
 const SERVER = import.meta.env.VITE_SERVER_URL
 
-console.log(SERVER)
+//console.log(SERVER)
 
 export const getAllAssets = async () => {
+    console.log("Getting All Assets")
     const response = await axios.get(`${SERVER}/assets`)
     if(response.status === 200){
-        return true
+        return response.data
     }
     else false
 }
 
 export const addAsset = async (asset) => {
+    console.log("Adding Asset")
     const response = await axios.post(`${SERVER}/assets`, asset)
     if(response.status === 200){
         return true
@@ -67,6 +69,7 @@ export const getAllAssetTypes = async () => {
     try{
         const response = await axios.get(`${SERVER}/assets/asset-type`)
         if(response.status == 200){
+            //console.log(response.data)
             return response.data
         }
     }
