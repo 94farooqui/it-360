@@ -1,12 +1,15 @@
-import mongoose from "mongoose";
-import { assetSchema } from "./asset.model";
-import { userSchema } from "./user.model";
-import { commentSchema } from "./comment.model";
+import mongoose, { Schema } from "mongoose";
+import { assetSchema } from "./asset.model.js";
+import { userSchema } from "./user.model.js";
+import { commentSchema } from "./comment.model.js";
 
 const ticketSchema = new mongoose.Schema({
     title: String,
     description: String,
     status: {
+        type: String,
+    },
+    severity:{
         type: String,
     },
     asset : {
@@ -19,3 +22,7 @@ const ticketSchema = new mongoose.Schema({
      },
     comments: [commentSchema]
 },{timestamps: true})
+
+const Ticket = mongoose.model("Ticket", ticketSchema)
+
+export default Ticket

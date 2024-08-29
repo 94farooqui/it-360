@@ -5,7 +5,6 @@ const useAssets = () => {
 
     const [categories, setCategories] = useState(null)
     const [types, setTypes] = useState(null)
-    const [vendors, setVendors] = useState(null)
     const [assets, setAssets] = useState(null)
 
     useEffect(() => {
@@ -26,7 +25,7 @@ const useAssets = () => {
         const fetchAssets = async () => {
             const data = await getAllAssets()
             if (data) {
-                console.log("Assets",data)
+                //console.log("Assets",data)
                 setAssets(data)
             }
         }

@@ -10,7 +10,7 @@ const AssetDetails = () => {
   return (
     <div className='py-4 flex flex-col gap-8'>
         <AssetDetailsCard asset={asset} />
-        <AssetTickets/>
+        <AssetTickets assetId={asset._id}/>
     </div>
   )
 }

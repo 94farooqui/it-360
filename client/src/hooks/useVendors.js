@@ -13,7 +13,7 @@ const useVendors = () => {
             }
         }
         fetchVendors()
-    }, [])
+    }, [vendors])
 
     return ({vendors,setVendors})
 

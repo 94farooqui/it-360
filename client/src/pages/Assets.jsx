@@ -29,7 +29,7 @@ const Assets = () => {
       </PageHeader>
       <Searchbar/>
       <div className='w-full h-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 py-4'>
-        {assets && assets.map(asset => <AssetCard asset={asset}/>)}
+        {assets ? assets.map(asset => <AssetCard key={asset._id} asset={asset}/>) : <h2>NOT FOUND</h2>}
       </div>
     </div>
   );

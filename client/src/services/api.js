@@ -5,7 +5,7 @@ const SERVER = import.meta.env.VITE_SERVER_URL
 //console.log(SERVER)
 
 export const getAllAssets = async () => {
-    console.log("Getting All Assets")
+    //console.log("Getting All Assets")
     const response = await axios.get(`${SERVER}/assets`)
     if(response.status === 200){
         return response.data
@@ -119,4 +119,45 @@ export const addNewVendor = async (newVendor) => {
     catch(error){
 
     }
+}
+
+export const getAlltickets = () => {
+
+}
+
+export const getAssetTickets = async (assetId) => {
+    console.log("Getting tickets for asset")
+    try{
+        const response = await axios.get(`${SERVER}/tickets/${assetId}`)
+        if(response){
+
+            if(response.status == 200){
+                const {data} = response
+                console.log(data)
+                return {result : true, data: data}
+             }
+             else return {result:false}
+        }
+ 
+        
+    }
+    catch(error){
+
+    }
+}
+
+export const addAssetTicket = async (assetTicket) => {
+    try{
+        console.log(assetTicket)
+        const response = await axios.post(`${SERVER}/tickets`,assetTicket)
+        if(response.status===200){
+            console.log(response)
+            return {added:true, msg: "The ticket added successfully"}
+        }
+        else return {added:false, msg:"Failed to add new ticket"}
+    }
+    catch(error){
+
+    }
+    
 }
