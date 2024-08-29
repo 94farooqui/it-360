@@ -14,6 +14,7 @@ import Assets from './pages/Assets'
 import NewCategory from './pages/NewCategory'
 import AssetCategoreis from './pages/AssetCategoreis'
 import AssetTypes from './pages/AssetTypes'
+import AssetDetails from './pages/AssetDetails'
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           </Route>
           <Route path='/vendors' element={<Vendors/>} />
           <Route path='/assets' element={<Assets/>} />
+          <Route path='/assets/:id' element={<AssetDetails/>} />
           <Route path='/asset-categories' element={<AssetCategoreis/>} />
           <Route path='/asset-types' element={<AssetTypes/>} />
 

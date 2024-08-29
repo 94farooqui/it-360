@@ -1,6 +1,8 @@
 import AddAsset from "@/components/assets/AddAsset";
+import AssetCard from "@/components/assets/AssetCard";
 import AssetHeader from "@/components/assets/AssetHeader";
 import PageHeader from "@/components/PageHeader";
+import Searchbar from "@/components/shared/Searchbar";
 import { Button } from "@/components/ui/button";
 import useAssets from "@/hooks/useAssets";
 import { getAllAssets } from "@/services/api";
@@ -25,8 +27,9 @@ const Assets = () => {
       <h2 className='text-2xl font-semibold text-slate-600'>Assets</h2>
         <Button variant="outline" onClick={()=>setShowAddAsset(true)}>Add New</Button>
       </PageHeader>
-      <div className='w-full h-full grid grid-cols-3 gap-4 py-4'>
-        {assets && assets.map(asset => <div className='bg-white p-4 rounded-lg'>{asset.assetName}</div>)}
+      <Searchbar/>
+      <div className='w-full h-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 py-4'>
+        {assets && assets.map(asset => <AssetCard asset={asset}/>)}
       </div>
     </div>
   );
