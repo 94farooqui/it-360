@@ -6,6 +6,7 @@ const TicketDetailsPage = ({ ticket, asset , setOpenTicket }) => {
   console.log(ticket);
   console.log(asset);
   return (
+   
     <div className="w-full h-full grid grid-cols-[auto_350px] gap-x-4">
       <div className="flex flex-col gap-4 overflow-y-scroll pl-4 py-4">
         <Card className="flex flex-col gap-4 justify-between item-center bg-primary-foreground card p-4">
@@ -32,6 +33,16 @@ const TicketDetailsPage = ({ ticket, asset , setOpenTicket }) => {
               </p>
             </div>
           </Card>
+        </div>
+
+        <div>
+          <h2 className="text-xl font-semibold mb-2 mt-4 text-gray-600">Comments</h2>
+          <div className="flex flex-col gap-4">
+            {ticket.comments.length > 0 ? ticket.comments.map(comment => <Card className="bg-card-foreground p-2">
+              <h4>{comment.author}</h4>
+              <p>{comment.content}</p>
+            </Card>) : <Card className="bg-primary-foreground p-4 text-primary/60 text-sm flex flex-col gap-2">No comments found</Card>}
+          </div>
         </div>
       </div>
       <div className="sticky h-full flex flex-col justify-between border-l-2 pl-4 border-dashed pt-4 border-gray-300">
@@ -104,6 +115,7 @@ const TicketDetailsPage = ({ ticket, asset , setOpenTicket }) => {
         </div>
       </div>
     </div>
+  
   );
 };
 
