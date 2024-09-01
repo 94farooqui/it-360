@@ -2,6 +2,7 @@ import AddAsset from "@/components/assets/AddAsset";
 import AssetCard from "@/components/assets/AssetCard";
 import AssetHeader from "@/components/assets/AssetHeader";
 import PageHeader from "@/components/PageHeader";
+import ErrorPage from "@/components/shared/ErrorPage";
 import Searchbar from "@/components/shared/Searchbar";
 import { Button } from "@/components/ui/button";
 import useAssets from "@/hooks/useAssets";
@@ -11,7 +12,7 @@ import { Link, Outlet } from "react-router-dom";
 
 const Assets = () => {
   const [showAddAsset, setShowAddAsset] = useState(false);
-  const {assets} = useAssets()
+  const {assets,error} = useAssets()
 
   useEffect(() => {
    
@@ -19,6 +20,10 @@ const Assets = () => {
 
   if(!assets){
     return <h2>Loading..</h2>
+  }
+
+  if(error){
+    return <ErrorPage/>
   }
   return (
     <div className="py-4">

@@ -10,7 +10,7 @@ export const getAllAssets = async () => {
     if(response.status === 200){
         return response.data
     }
-    else false
+    else return false
 }
 
 export const addAsset = async (asset) => {

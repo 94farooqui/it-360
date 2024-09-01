@@ -1,6 +1,7 @@
 import AddAssetType from '@/components/assets/AddAssetType'
 import AddCategory from '@/components/assets/AddCategory'
 import PageHeader from '@/components/PageHeader'
+import ErrorPage from '@/components/shared/ErrorPage'
 import { Button } from '@/components/ui/button'
 import useAssets from '@/hooks/useAssets'
 import { getAllAssetCategories, getAllAssetTypes } from '@/services/api'
@@ -8,7 +9,7 @@ import React, { useEffect, useState } from 'react'
 
 const AssetTypes = () => {
   const [showNewType,setShowNewType] = useState(false)
-  const {types,setTypes} = useAssets()
+  const {types,setTypes,error} = useAssets()
 
 
 
@@ -21,6 +22,13 @@ const AssetTypes = () => {
   //   }
   //   fetchTypes()
   // },[])
+  if(!types){
+    return <h2>Loading...</h2>
+  }
+
+  if(error){
+    return <ErrorPage/>
+  }
   return (
     <div className="py-4 pr-4">
       <PageHeader>

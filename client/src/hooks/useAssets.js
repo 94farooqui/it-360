@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 
 const useAssets = () => {
 
+    const [error,setError] = useState(null)
     const [categories, setCategories] = useState(null)
     const [types, setTypes] = useState(null)
     const [assets, setAssets] = useState(null)
@@ -28,13 +29,14 @@ const useAssets = () => {
                 //console.log("Assets",data)
                 setAssets(data)
             }
+            else setError({error:"Unable to ferch data"})
         }
         fetchCategories()
         fetchTypes()
         fetchAssets()
     }, [])
 
-    return ({categories,setCategories,types,setTypes,assets})
+    return ({categories,setCategories,types,setTypes,assets,error,setError})
 
 }
 
