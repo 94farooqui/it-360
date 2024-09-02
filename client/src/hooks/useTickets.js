@@ -15,7 +15,7 @@ const useTickets = (assetId) => {
         const fetchAssetTickets = async (assetId) => {
             const {result , data} = await getAssetTickets(assetId)
             if(result){
-                console.log(data)
+                //console.log(data)
                 setTickets(data)
             }
         }
