@@ -5,7 +5,7 @@ import NewTicket from "./NewTicket";
 import useTickets from "@/hooks/useTickets";
 import { TicketCardSmall } from "../tickets/TicketCardSmall";
 
-const AssetTickets = ({ assetId,setOpenTicket,setCurrentOpenTicket }) => {
+const AssetTickets = ({ assetId,setIsTicketOpen,setCurrentOpenTicket }) => {
   const [showNewTicket, setShowNewTicket] = useState(false);
   const { tickets } = useTickets(assetId);
 
@@ -44,7 +44,7 @@ const AssetTickets = ({ assetId,setOpenTicket,setCurrentOpenTicket }) => {
             //     <p><span className="font-semibold">Last Update:</span> {(new Date(ticket.updatedAt).toDateString())}</p>
             //   </div>
             // </div>
-            <TicketCardSmall setOpenTicket={setOpenTicket} setCurrentOpenTicket={setCurrentOpenTicket} key={index} ticket={ticket} />
+            <TicketCardSmall setIsTicketOpen={setIsTicketOpen} setCurrentOpenTicket={setCurrentOpenTicket} key={index} ticket={ticket} />
           ))}
         </div>
       ) : (

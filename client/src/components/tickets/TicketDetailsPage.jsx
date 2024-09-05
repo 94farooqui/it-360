@@ -1,14 +1,17 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Card } from "../ui/card";
 import { Button } from "../ui/button";
 import TicketCommentBox from "./TicketCommentBox";
 import { RootContext } from "@/context/RootContext";
 
-const TicketDetailsPage = ({ ticket, asset, setOpenTicket }) => {
+const TicketDetailsPage = ({ ticket, asset, setIsTicketOpen }) => {
   const [showCommentBox,setShowCommentBox] = useState(false)
   const {currentTicket,setCurrentTicket} = useContext(RootContext)
   //console.log(ticket);
   //console.log(asset);
+  useEffect(()=>{
+
+  },[currentTicket])
   return (
     <div className="w-full h-full grid grid-cols-[auto_350px] gap-x-4">
       <div className="flex flex-col gap-4 overflow-y-scroll pl-4 py-4">
@@ -148,7 +151,7 @@ const TicketDetailsPage = ({ ticket, asset, setOpenTicket }) => {
           <Button
             className="flex-1"
             variant="outline"
-            onClick={() => setOpenTicket(false)}
+            onClick={() => setIsTicketOpen(false)}
           >
             Cancel
           </Button>

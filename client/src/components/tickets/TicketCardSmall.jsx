@@ -28,11 +28,12 @@ const notifications = [
   },
 ];
 export function TicketCardSmall({ className, ...props }) {
+  const { ticket,setIsTicketOpen,setCurrentOpenTicket } = props;
   const {currentTicket,setCurrentTicket} = useContext(RootContext)
-  const { ticket,setOpenTicket,setCurrentOpenTicket } = props;
+ 
 
   const handleOpenButton = () => {
-    setOpenTicket(true)
+    setIsTicketOpen(true)
     setCurrentOpenTicket(ticket)
     setCurrentTicket(ticket)
   }

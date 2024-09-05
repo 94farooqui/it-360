@@ -8,7 +8,7 @@ import { useLocation, useParams } from 'react-router-dom'
 const AssetDetails = () => {
     //const {id} = useParams()
     const {currentTicket,setCurrentTicket} = useContext(RootContext)
-    const [openTicket,setOpenTicket] = useState(false)
+    const [isTicketOpen,setIsTicketOpen] = useState(false)
     const [currentOpenTicket,setCurrentOpenTicket] = useState()
     const location = useLocation()
     const asset = location.state?.asset
@@ -18,8 +18,8 @@ const AssetDetails = () => {
   return (
     <div className='py-4 flex flex-col gap-8'>
         <AssetDetailsCard asset={asset} />
-      <AssetTickets setOpenTicket={setOpenTicket} setCurrentOpenTicket={setCurrentOpenTicket} assetId={asset._id}/>
-        {openTicket && <AssetTicketContainer asset={asset} ticket={currentOpenTicket} setOpenTicket={setOpenTicket} />}
+      <AssetTickets setIsTicketOpen={setIsTicketOpen} setCurrentOpenTicket={setCurrentOpenTicket} assetId={asset._id}/>
+        {isTicketOpen && <AssetTicketContainer asset={asset} ticket={currentOpenTicket} setIsTicketOpen={setIsTicketOpen} />}
     </div>
   )
 }

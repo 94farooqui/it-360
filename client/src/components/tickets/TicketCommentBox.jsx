@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Button } from '../ui/button'
 import { addTicketComment } from '@/services/api'
+import { RootContext } from '@/context/RootContext'
 
 const initalComment = {
     content: ""
@@ -8,8 +9,10 @@ const initalComment = {
 
 const TicketCommentBox = ({ticketId,setShowCommentBox}) => {
     const [newComment,setNewComment] = useState(initalComment)
+    const {currentTicket,setCurrentTicket} = useContext(RootContext)
     const handleCommentSubmit = async (e) => {
         e.preventDefault()
+        setCurrentTicket({...currentTicket,comments: [...currentTicket.comments, newComment]})
         const response = await addTicketComment(newComment,ticketId)
         console.log(response)
         if(response){
