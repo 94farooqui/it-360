@@ -1,15 +1,20 @@
 import AssetDetailsCard from '@/components/assets/AssetDetailsCard'
 import AssetTicketContainer from '@/components/assets/AssetTicketContainer'
 import AssetTickets from '@/components/assets/AssetTickets'
-import React, { useState } from 'react'
+import { RootContext } from '@/context/RootContext'
+import React, { useContext, useEffect, useState } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
 
 const AssetDetails = () => {
     //const {id} = useParams()
+    const {currentTicket,setCurrentTicket} = useContext(RootContext)
     const [openTicket,setOpenTicket] = useState(false)
     const [currentOpenTicket,setCurrentOpenTicket] = useState()
     const location = useLocation()
     const asset = location.state?.asset
+    useEffect(()=>{
+      console.log(currentTicket)
+    },[])
   return (
     <div className='py-4 flex flex-col gap-8'>
         <AssetDetailsCard asset={asset} />

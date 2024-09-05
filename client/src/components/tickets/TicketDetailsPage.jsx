@@ -1,18 +1,20 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Card } from "../ui/card";
 import { Button } from "../ui/button";
 import TicketCommentBox from "./TicketCommentBox";
+import { RootContext } from "@/context/RootContext";
 
 const TicketDetailsPage = ({ ticket, asset, setOpenTicket }) => {
   const [showCommentBox,setShowCommentBox] = useState(false)
+  const {currentTicket,setCurrentTicket} = useContext(RootContext)
   //console.log(ticket);
   //console.log(asset);
   return (
     <div className="w-full h-full grid grid-cols-[auto_350px] gap-x-4">
       <div className="flex flex-col gap-4 overflow-y-scroll pl-4 py-4">
         <Card className="flex flex-col gap-4 justify-between item-center bg-primary-foreground card p-4">
-          <h2 className="text-xl font-semibold text-primary">{ticket.title}</h2>
-          <p className="text-primary/60">{ticket.description}</p>
+          <h2 className="text-xl font-semibold text-primary">{currentTicket.title}</h2>
+          <p className="text-primary/60">{currentTicket.description}</p>
         </Card>
         <div className="">
           <h2 className="text-xl font-semibold mb-2 mt-4 text-gray-600">
@@ -45,11 +47,11 @@ const TicketDetailsPage = ({ ticket, asset, setOpenTicket }) => {
               Add Comment
             </button>
           </div>
-          {showCommentBox && <TicketCommentBox ticketId={ticket._id} setShowCommentBox={setShowCommentBox}/>}
+          {showCommentBox && <TicketCommentBox ticketId={currentTicket._id} setShowCommentBox={setShowCommentBox}/>}
           <div className="mt-4 flex flex-col gap-4">
-            {ticket.comments.length > 0 ? (
-              ticket.comments.map((comment) => (
-                <Card className="bg-card-foreground p-2">
+            {currentTicket.comments.length > 0 ? (
+              currentTicket.comments.map((comment) => (
+                <Card className="bg-white p-2">
                   <h4>{comment.author}</h4>
                   <p>{comment.content}</p>
                 </Card>
@@ -70,15 +72,15 @@ const TicketDetailsPage = ({ ticket, asset, setOpenTicket }) => {
               <form className="text-primary/60 text-sm mt-2 flex flex-col gap-2">
                 <p className="font-normal mb-2">
                   <span className="font-semibold">Created : </span>
-                  {new Date(ticket.createdAt).toLocaleString()}
+                  {new Date(currentTicket.createdAt).toLocaleString()}
                 </p>
                 <p className="font-normal">
                   <span className="font-semibold">Updated : </span>
-                  {new Date(ticket.updatedAt).toLocaleString()}
+                  {new Date(currentTicket.updatedAt).toLocaleString()}
                 </p>
                 <p className="font-normal">
                   <label className="font-semibold">Severity : </label>
-                  <select defaultValue={ticket.severity} className="bg-gray-100 p-2 rounded-md">
+                  <select defaultValue={currentTicket.severity} className="bg-gray-100 p-2 rounded-md">
                     <option>Critical</option>
                     <option>High</option>
                     <option>Medium</option>
@@ -87,7 +89,7 @@ const TicketDetailsPage = ({ ticket, asset, setOpenTicket }) => {
                 </p>
                 <p className="font-normal">
                   <label className="font-semibold">Status : </label>
-                  <select defaultValue={ticket.status} className="bg-gray-100 p-2 rounded-md">
+                  <select defaultValue={currentTicket.status} className="bg-gray-100 p-2 rounded-md">
                     <option>Open</option>
                     <option>In Progress</option>
                     <option>Awaiting vendor response</option>
@@ -126,19 +128,19 @@ const TicketDetailsPage = ({ ticket, asset, setOpenTicket }) => {
             </p>
             <p>
               <span className="font-semibold">Created : </span>
-              {new Date(ticket.createdAt).toLocaleString()}
+              {new Date(currentTicket.createdAt).toLocaleString()}
             </p>
             <p>
               <span className="font-semibold">Updated : </span>
-              {new Date(ticket.updatedAt).toLocaleString()}
+              {new Date(currentTicket.updatedAt).toLocaleString()}
             </p>
             <p>
               <span className="font-semibold">Severity : </span>
-              {ticket.severity}
+              {currentTicket.severity}
             </p>
             <p>
               <span className="font-semibold">Status : </span>
-              {ticket.status}
+              {currentTicket.status}
             </p>
           </Card>
         </div>

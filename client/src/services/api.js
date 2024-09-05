@@ -149,6 +149,10 @@ export const getAssetTickets = async (assetId) => {
 export const addTicketComment = async (comment, ticketId) => {
     console.log(comment, ticketId)
     const response = await axios.post(`${SERVER}/tickets/${ticketId}/comments`,comment)
+    console.log(response)
+    if(response.status == 200){
+        return true
+    }
 }
 
 export const addAssetTicket = async (assetTicket) => {
@@ -165,4 +169,17 @@ export const addAssetTicket = async (assetTicket) => {
 
     }
     
+}
+
+export const getTicketComments = async (ticketId) => {
+    try{
+        const response = await axios.get(`${SERVER}/tickets/${ticketId}/comments`)
+        if(response.status == 200){
+            return response.data
+        }
+        else return []
+    }
+    catch(error){
+        return false
+    }
 }

@@ -54,7 +54,7 @@ const AssetTickets = ({ assetId,setOpenTicket,setCurrentOpenTicket }) => {
       )}
 
       {showNewTicket && (
-        <NewTicket assetId={asset._id} setShowNewTicket={setShowNewTicket} />
+        <NewTicket assetId={assetId} setShowNewTicket={setShowNewTicket} />
       )}
     </div>
   );

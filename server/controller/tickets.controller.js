@@ -59,3 +59,15 @@ export const addTicketComment = async (req, res) => {
     return res.status(200).json(newComment);
   } else return res.status(400);
 };
+
+
+export const getTicketComments = async (req,res) => {
+    const {ticketId} = req.params
+    try{
+        const ticket = await Ticket.findById(ticketId)
+        return res.status(200).json(ticket.comments)
+    }
+    catch(error){
+        return res.status(400).json({error: error.msg})
+    }
+}

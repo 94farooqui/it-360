@@ -10,6 +10,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { useContext, useEffect } from "react";
+import { RootContext } from "@/context/RootContext";
 
 const notifications = [
   {
@@ -26,12 +28,18 @@ const notifications = [
   },
 ];
 export function TicketCardSmall({ className, ...props }) {
+  const {currentTicket,setCurrentTicket} = useContext(RootContext)
   const { ticket,setOpenTicket,setCurrentOpenTicket } = props;
 
   const handleOpenButton = () => {
     setOpenTicket(true)
     setCurrentOpenTicket(ticket)
+    setCurrentTicket(ticket)
   }
+
+  useEffect(()=>{
+    console.log(currentTicket)
+  },[currentTicket])
   return (
     <Card
       className={cn("w-full flex flex-col justify-between", className)}

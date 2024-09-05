@@ -11,6 +11,11 @@ const TicketCommentBox = ({ticketId,setShowCommentBox}) => {
     const handleCommentSubmit = async (e) => {
         e.preventDefault()
         const response = await addTicketComment(newComment,ticketId)
+        console.log(response)
+        if(response){
+            setNewComment(initalComment)
+            setShowCommentBox(false)
+        }
     }
   return (
     <div>
