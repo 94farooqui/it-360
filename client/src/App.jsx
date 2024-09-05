@@ -15,6 +15,7 @@ import NewCategory from './pages/NewCategory'
 import AssetCategoreis from './pages/AssetCategoreis'
 import AssetTypes from './pages/AssetTypes'
 import AssetDetails from './pages/AssetDetails'
+import TicketDetails from './pages/TicketDetails'
 
 
 function App() {
@@ -27,7 +28,10 @@ function App() {
           <Route path='/' element={<Home/>} />
           <Route path='/tickets' element={<Tickets/>}>
             <Route path='new' element={<NewTicket/>} />
+            
+
           </Route>
+          <Route path='/tickets/:id' element={<TicketDetails/>} />
           <Route path='/vendors' element={<Vendors/>} />
           <Route path='/assets' element={<Assets/>} />
           <Route path='/assets/:id' element={<AssetDetails/>} />

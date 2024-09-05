@@ -28,6 +28,22 @@ export const getAssetTickets = async (req, res) => {
   }
 };
 
+export const getTicketDetails = async (req, res) => {
+  console.log(`Request for ticket details ${req.params.assetId}`);
+  const { ticketId } = req.params;
+  try {
+    const ticket = await Ticket.findById(ticketId);
+    if (ticket) {
+      console.log(ticket);
+      return res.status(200).json(ticket);
+    } else return res.status(204).json({ msg: "No tickets found" });
+  } catch (error) {
+    console.log(error);
+    return res.status(400).json({ msg: "Something went wrong" });
+  }
+};
+
+
 export const addAssetTicket = async (req, res) => {
   console.log("REquest for new ticket", req.body);
   try {

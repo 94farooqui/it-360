@@ -3,6 +3,8 @@ import PageHeader from '@/components/PageHeader'
 import { TicketCard } from '@/components/tickets/TicketCard'
 import { TicketFilter } from '@/components/tickets/TicketFilter'
 import { Button } from '@/components/ui/button'
+import useTickets from '@/hooks/useTickets'
+import { getAlltickets } from '@/services/api'
 import React, { useEffect, useState } from 'react'
 import { Link, Outlet, useSearchParams } from 'react-router-dom'
 
@@ -13,18 +15,24 @@ const Tickets = () => {
   const filter = searchParams.get("filter")
 
   useEffect(()=>{
-    const showTickets = () => {
-      let data;
+    const showTickets = async () => {
+      const data = await getAlltickets()
+    if(data){
+      console.log(data.tickets)
       if(filter == "All"){
-        data = sampleTickets 
+        setTickets(data.tickets)
       }
-      else data = sampleTickets.filter(ticket => ticket.status == filter)
+      else {
+        let data = data.tickets.filter(ticket => ticket.status == filter)
+        setTickets(data)
+      }
+    }
       
-      setTickets(data)
+      
     }
     showTickets()
   },[filter])
-  const [ticketFilter,setTicketFilter] = useState("all")
+  //const [ticketFilter,setTicketFilter] = useState("all")
 
   if(!tickets){
     return <h2>Ladoing</h2>
@@ -39,6 +47,7 @@ const Tickets = () => {
         </PageHeader>
       <div className='mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-4 py-4'>
         {tickets.map((ticket,index) => <TicketCard key={index} ticket={ticket} />)}
+        {/* <TicketCardSmall setIsTicketOpen={setIsTicketOpen} setCurrentOpenTicket={setCurrentOpenTicket} key={index} ticket={ticket} /> */}
 
       </div>
       <Outlet/>

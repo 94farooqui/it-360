@@ -121,8 +121,16 @@ export const addNewVendor = async (newVendor) => {
     }
 }
 
-export const getAlltickets = () => {
+export const getAlltickets = async () => {
+    try{
+        const response = await axios.get(`${SERVER}/tickets`)
+        if(response.status == 200){
+            return response.data
+        }
+    }
+    catch(error){
 
+    }
 }
 
 export const getAssetTickets = async (assetId) => {
@@ -146,6 +154,26 @@ export const getAssetTickets = async (assetId) => {
     }
 }
 
+export const getTicketDetails = async (ticketId) => {
+    //console.log("Getting tickets for asset")
+    try{
+        const response = await axios.get(`${SERVER}/tickets/${ticketId}`)
+        if(response){
+
+            if(response.status == 200){
+                const {data} = response
+                //console.log(data)
+                return {result : true, data: data}
+             }
+             else return {result:false}
+        }
+ 
+        
+    }
+    catch(error){
+
+    }
+}
 export const addTicketComment = async (comment, ticketId) => {
     console.log(comment, ticketId)
     const response = await axios.post(`${SERVER}/tickets/${ticketId}/comments`,comment)
