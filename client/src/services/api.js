@@ -155,21 +155,17 @@ export const getAssetTickets = async (assetId) => {
 }
 
 export const getTicketDetails = async (ticketId) => {
-    //console.log("Getting tickets for asset")
+    console.log(`Getting ticket details for ${ticketId}`)
     try{
-        const response = await axios.get(`${SERVER}/tickets/${ticketId}`)
-        if(response){
+        const response = await axios.get(`${SERVER}/tickets/${ticketId}/info`)
 
             if(response.status == 200){
                 const {data} = response
-                //console.log(data)
+                console.log(data)
                 return {result : true, data: data}
              }
              else return {result:false}
         }
- 
-        
-    }
     catch(error){
 
     }

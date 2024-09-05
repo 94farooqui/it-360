@@ -14,21 +14,20 @@ import { RootContext } from "@/context/RootContext";
 import { useNavigate } from "react-router-dom";
 
 export function TicketCard({ className, ...props }) {
-  const { ticket,setIsTicketOpen,setCurrentOpenTicket } = props;
+  const { ticket } = props;
   const {currentTicket,setCurrentTicket} = useContext(RootContext)
   const navigate = useNavigate()
  
 
   const handleOpenButton = () => {
-    navigate(`${ticket._id}`)
-    setIsTicketOpen(true)
-    setCurrentOpenTicket(ticket)
     setCurrentTicket(ticket)
+    navigate(`${ticket._id}`)
+    
   }
 
   useEffect(()=>{
-    console.log(currentTicket)
-  },[currentTicket])
+    
+  },[])
   return (
     <Card
       className={cn("w-full flex flex-col justify-between", className)}

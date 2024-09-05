@@ -14,7 +14,7 @@ const ticketSchema = new mongoose.Schema({
     },
     asset : {
         type: Schema.Types.ObjectId,
-        ref: "asset"
+        ref: "Asset"
      },
     assignee: {
         type: Schema.Types.ObjectId,

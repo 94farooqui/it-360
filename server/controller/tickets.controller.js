@@ -32,7 +32,7 @@ export const getTicketDetails = async (req, res) => {
   console.log(`Request for ticket details ${req.params.assetId}`);
   const { ticketId } = req.params;
   try {
-    const ticket = await Ticket.findById(ticketId);
+    const ticket = await Ticket.findById(ticketId).populate('asset');
     if (ticket) {
       console.log(ticket);
       return res.status(200).json(ticket);

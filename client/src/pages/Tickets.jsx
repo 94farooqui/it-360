@@ -18,7 +18,7 @@ const Tickets = () => {
     const showTickets = async () => {
       const data = await getAlltickets()
     if(data){
-      console.log(data.tickets)
+      //console.log(data.tickets)
       if(filter == "All"){
         setTickets(data.tickets)
       }

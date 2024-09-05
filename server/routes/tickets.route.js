@@ -7,7 +7,7 @@ router.get("/", getAllTickets)
 router.post("/", addAssetTicket)
 router.get("/:assetId", getAssetTickets)
 
-router.get('/:ticketId', getTicketDetails)
+router.get('/:ticketId/info', getTicketDetails)
 router.get("/:ticketId/comments", getTicketComments)
 router.post("/:ticketId/comments", addTicketComment)
 
