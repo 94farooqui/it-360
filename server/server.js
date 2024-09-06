@@ -7,6 +7,7 @@ import UsersRouter from './routes/users.route.js'
 import TicketsRouter from './routes/tickets.route.js'
 import AssetsRouter from './routes/assets.route.js'
 import VendorRouter from './routes/vendors.route.js'
+import AuthRouter from './routes/auth.route.js'
 
 dotenv.config()
 
@@ -24,6 +25,7 @@ app.use("/users", UsersRouter)
 app.use("/assets", AssetsRouter)
 app.use("/vendors", VendorRouter)
 app.use("/tickets", TicketsRouter)
+app.use("/auth", AuthRouter)
 app.get("/", (req,res) => {
     console.log("Server working")
 })

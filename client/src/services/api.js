@@ -4,6 +4,19 @@ const SERVER = import.meta.env.VITE_SERVER_URL
 
 //console.log(SERVER)
 
+export const userLogin = async (userDetails) => {
+    try{
+        const response = await axios.post(`${SERVER}/auth/login`,userDetails)
+        if(response.status == 200){
+            console.log(response)
+            return response.data.token
+        }
+    }
+    catch(error){
+        throw error
+    }
+}
+
 export const getAllAssets = async () => {
     //console.log("Getting All Assets")
     const response = await axios.get(`${SERVER}/assets`)
