@@ -25,3 +25,11 @@ export const userSignup = async (req,res) => {
       res.status(400).json({ error: error.message });
     }
   }
+
+  export const getUserDetails = async (req,res) => {
+    if(req.user){
+      console.log(req.user)
+      const user = await User.findById(req.user.id)
+      return res.status(200).json(user)
+    }
+  }

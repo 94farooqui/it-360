@@ -27,6 +27,7 @@ function App() {
   return (
     <>
       <AuthProvider>
+
         <Routes>
 
           <Route element={<Layout />}>

@@ -17,6 +17,19 @@ export const userLogin = async (userDetails) => {
     }
 }
 
+export const fetchUser = async (token) => {
+    console.log("Fetcing user")
+    const response = await axios.get(`${SERVER}/auth`,{
+        headers:{
+            "authorization":`Bearer ${token}`
+        }
+    })
+    if(response.status == 200){
+        console.log(response.data)
+        return response.data
+    }
+}
+
 export const getAllAssets = async () => {
     //console.log("Getting All Assets")
     const response = await axios.get(`${SERVER}/assets`)
