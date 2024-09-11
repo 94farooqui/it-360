@@ -25,6 +25,7 @@ export const assetSchema = new mongoose.Schema({
         type: Schema.Types.ObjectId,
         ref: "Vendor"
     },
+    tickets: [{type: Schema.Types.ObjectId, ref: "Ticket"}]
 })
 
 const Asset = mongoose.model("Asset",assetSchema)

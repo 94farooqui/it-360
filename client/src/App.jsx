@@ -19,6 +19,7 @@ import TicketDetails from './pages/TicketDetails'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 import { AuthProvider } from './context/AuthContext'
+import ProtectedComponent from './components/ProtectedComponent'
 
 
 function App() {
@@ -29,7 +30,7 @@ function App() {
       <AuthProvider>
 
         <Routes>
-
+          <Route element={<ProtectedComponent/>}>
           <Route element={<Layout />}>
             <Route path='/' element={<Home />} />
             <Route path='/tickets' element={<Tickets />}>
@@ -47,7 +48,7 @@ function App() {
             <Route path='/users' element={<Users />} />
 
           </Route>
-
+          </Route>
         </Routes>
         <Routes>
           <Route path='login' element={<Login />} />

@@ -71,6 +71,29 @@ export const assetTypes = [
             }
 ]
 
+export const dashboardData = [
+    {
+        title: "Open Tickets",
+        data : 23
+    },
+    {
+        title: "Assets",
+        data: 320
+    },
+    {
+        title: "Vendors",
+        data: 33
+    },
+    {
+        title: "Categories",
+        data: 8
+    },
+    {
+        title: "Users",
+        data : 12
+    }
+]
+
 export const vendors = [
     {
         name: "HP",

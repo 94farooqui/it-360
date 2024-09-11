@@ -9,10 +9,11 @@ export const authMiddleware = (req, res, next) => {
   try {
     //console.log("Token",token)
     const decoded = verifyToken(token);
-    console.log("Decoded",decoded)
+    //console.log("Decoded",decoded)
     req.user = decoded;
     next();
   } catch (error) {
-    res.status(401).json({ error: 'Invalid token' });
+    console.log("Error",error.message, "Request", req.originalUrl)
+    return res.status(401).json({ error: 'Invalid token' });
   }
 };

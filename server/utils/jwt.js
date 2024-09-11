@@ -10,9 +10,11 @@ export const generateToken = (user) => {
   });
 };
 
-export const verifyToken = (token) => {
-  
-  return jwt.verify(token, secret);
+export const verifyToken =  (token) => {
+  console.log("Received token", token)
+  const result =  jwt.verify(token, secret);
+  console.log("verifying token", result)
+  return result
 };
 
 

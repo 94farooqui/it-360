@@ -14,6 +14,10 @@ const Tickets = () => {
   const [tickets,setTickets] = useState()
   const filter = searchParams.get("filter")
 
+  const handleAddTicket = () => {
+
+  }
+
   useEffect(()=>{
     const showTickets = async () => {
       const data = await getAlltickets()
@@ -43,6 +47,7 @@ const Tickets = () => {
         <h2 className='text-2xl font-semibold text-slate-600'>{filter} Tickets</h2>
         <div className='flex gap-2'>
         <TicketFilter filter={filter} setSearchParams={setSearchParams} />
+        <Button disabled className="font-semibold text-lg w-32 flex justify-between" variant="outline" onClick={handleAddTicket}>Add New</Button>
         </div>
         </PageHeader>
       <div className='mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-4 py-4'>

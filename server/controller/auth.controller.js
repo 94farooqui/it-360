@@ -28,7 +28,7 @@ export const userSignup = async (req,res) => {
 
   export const getUserDetails = async (req,res) => {
     if(req.user){
-      console.log(req.user)
+      console.log("Decoded User",req.user)
       const user = await User.findById(req.user.id)
       return res.status(200).json(user)
     }

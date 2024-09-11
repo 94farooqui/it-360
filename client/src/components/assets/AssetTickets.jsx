@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import { useNavigate } from "react-router-dom";
 import NewTicket from "./NewTicket";
@@ -7,13 +7,17 @@ import { TicketCardSmall } from "../tickets/TicketCardSmall";
 
 const AssetTickets = ({ assetId,setIsTicketOpen,setCurrentOpenTicket }) => {
   const [showNewTicket, setShowNewTicket] = useState(false);
-  const { tickets } = useTickets(assetId);
+  const { assetTickets,fetchAssetTickets } = useTickets(assetId);
 
   const navigate = useNavigate();
 
   //   const handleNewTicket = () => {
   //     navigate("new-ticket", { state: { asset } });
   //   };
+  useEffect(()=>{
+    fetchAssetTickets(assetId)
+    console.log(assetId)
+  },[])
   return (
     <div className="w-full">
       <div className="flex justify-between items-center">
@@ -25,13 +29,13 @@ const AssetTickets = ({ assetId,setIsTicketOpen,setCurrentOpenTicket }) => {
           New Ticket
         </button>
       </div>
-      {tickets ? (
+      {assetTickets ? (
       //   <div className='mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-4 py-4'>
       //   {tickets.map((ticket,index) => <TicketCard key={index} ticket={ticket} />)}
 
       // </div>
       <div className='mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-x-4 gap-y-4 py-4'>
-          {tickets.tickets.map((ticket,index) => (
+          {assetTickets.tickets.map((ticket,index) => (
             // <div className="bg-white mt-2 rounded-lg px-8 py-4 flex flex-col gap-4">
             //   <div>
             //     <h2 className="text-slate-600 font-semibold">{ticket.title}</h2>
