@@ -44,6 +44,16 @@ export const fetchUser = async (token) => {
  
 };
 
+export const getDashboardData = async () => {
+    //console.log("Fetching dashboard")
+    const response = await axios.get(`${SERVER}/dashboard`)
+
+    if(!response.status == 200){
+        return console.log(response)
+    }
+    return response.data
+}
+
 export const getAllAssets = async () => {
   //console.log("Getting All Assets")
   const response = await axios.get(`${SERVER}/assets`);

@@ -8,6 +8,7 @@ import TicketsRouter from './routes/tickets.route.js'
 import AssetsRouter from './routes/assets.route.js'
 import VendorRouter from './routes/vendors.route.js'
 import AuthRouter from './routes/auth.route.js'
+import DashboardRouter from './routes/dashboard.route.js'
 
 dotenv.config()
 
@@ -21,6 +22,7 @@ app.use(cors())
 //console.log(process.env.DB_URL)
 connect_DB()
 
+app.use("/dashboard", DashboardRouter)
 app.use("/users", UsersRouter)
 app.use("/assets", AssetsRouter)
 app.use("/vendors", VendorRouter)
